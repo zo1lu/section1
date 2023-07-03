@@ -1,0 +1,127 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>0703 week01 Html CSS RWD Practice</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <script>
+        
+        let showMenu=function(){
+            let hamburgerIcon = document.getElementById("hamburgerIcon")
+            let menu = document.getElementById("menu")
+            menu.style.display="flex";
+            hamburgerIcon.style.display="none";
+        }
+        let showHamburger=function(){
+            let hamburgerIcon = document.getElementById("hamburgerIcon")
+            let menu = document.getElementById("menu")
+            menu.style.display="none";
+            hamburgerIcon.style.display="flex";
+        }
+    </script>
+    <body>
+        <div id="head">
+                <h3 id="title">My Website</h3>
+                <div id="navbar">
+                    <ul>   
+                        <li class="rowList">Item 1</li>
+                        <li class="rowList">Item 2</li>
+                        <li class="rowList">Item 3</li>
+                        <li class="rowList">Item 4</li>
+                    </ul>
+                </div>
+                <div id="hiddenNavbar">
+                    <div id="hamburgerIcon" class="icon" onclick="showMenu()">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <div id="menu">
+                        <div id="timeBlock" onclick="showHamburger()">
+                            <i id="times" class="fa fa-times" aria-hidden="true"></i>
+                        </div>
+                        <ul>   
+                            <li class="columnList">Item 1</li>
+                            <hr/>
+                            <li class="columnList">Item 2</li>
+                            <hr/>
+                            <li class="columnList">Item 3</li>
+                            <hr/>
+                            <li class="columnList">Item 4</li>
+                        </ul>
+                    </div>
+                </div>
+                
+        </div>
+        <div id="heroImg">
+            <h1 class="welcomeText">Welcome to My Home</h1>
+        </div>
+        <div id="content">
+            <div id="promotionSection">
+                <div class="promotionItem" id="item1">
+                    <img class="promotionImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Promotion1" />
+                    <p class="promotionTitle">Promotion 1</p>
+                </div>
+                <div class="promotionItem" id="item2">
+                    <img class="promotionImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Promotion2" />
+                    <p class="promotionTitle">Promotion 2</p>
+                </div>
+                <div class="promotionItem" id="item3">
+                    <img class="promotionImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Promotion3" />
+                    <p class="promotionTitle">Promotion 3</p>
+                </div>
+            </div>
+            <div id="articleSection">
+                <div class="articlePage">
+                    <img class="articleImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="article1">
+                    <p class="articleTitle">Title 1</p>
+                </div>
+                <div class="articlePage">
+                    <img class="articleImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="article1">
+                    <p class="articleTitle">Title 2</p>
+                </div>
+                <div class="articlePage">
+                    <img class="articleImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="article1">
+                    <p class="articleTitle">Title 3</p>
+                </div>
+                <div class="articlePage">
+                    <img class="articleImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="article1">
+                    <p class="articleTitle">Title 4</p>
+                </div>
+                <div class="articlePage">
+                    <img class="articleImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="article1">
+                    <p class="articleTitle">Title 5</p>
+                </div>
+                <div class="articlePage">
+                    <img class="articleImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="article1">
+                    <p class="articleTitle">Title 6</p>
+                </div>
+                <div class="articlePage">
+                    <img class="articleImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="article1">
+                    <p class="articleTitle">Title 7</p>
+                </div>
+                <div class="articlePage">
+                    <img class="articleImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="article1">
+                    <p class="articleTitle">Title 8</p>
+                </div>
+                <div class="articlePage">
+                    <img class="articleImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="article1">
+                    <p class="articleTitle">Title 9</p>
+                </div>
+                <div class="articlePage">
+                    <img class="articleImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="article1">
+                    <p class="articleTitle">Title 10</p>
+                </div>
+                <div class="articlePage">
+                    <img class="articleImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="article1">
+                    <p class="articleTitle">Title 11</p>
+                </div>
+                <div class="articlePage">
+                    <img class="articleImg" src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="article1">
+                    <p class="articleTitle">Title 12</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
