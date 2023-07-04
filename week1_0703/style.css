@@ -48,8 +48,9 @@ body{
     right:0;
     width:60vw;
     background-color: rgb(255, 255, 255,0.8);
-    height:100vh;
+    height:100%;
     padding:0 10px ;
+    z-index:1;
 }
 #timeBlock{
     height:50px;
