@@ -127,22 +127,35 @@ hr{
     grid-template-columns: repeat(6,1fr);
 }
 .articlePage{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: rgb(221, 239, 239);
-
+    align-items: center; */
+    position:relative;
+}
+.articlaImg{
+    width:100%;
+    height:100%;
+    /* max-width: 100%; */
 }
 .articleTitle{
-    margin:10px 0;
+    width:100%;
+    height:30px;
+    background-color: rgb(221, 239, 239,0.6);
+    position:absolute;
+    bottom:0;
+    text-align: center;
+    padding:5px 0;
 }
 img{
     max-width: 100%;
-    max-height: auto;
     display: block;
     object-fit: cover;
 }
-
+.star{
+    position:absolute;
+    top:10px;
+    right:10px;
+}
 
 @media (max-width:1200px){
     #content{
