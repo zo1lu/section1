@@ -1,6 +1,7 @@
 import urllib.request as req
 import bs4
 
+#get parsed page
 def getPage(url):
     request=req.Request(url,headers={
         "User-Agent":"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
@@ -11,6 +12,7 @@ def getPage(url):
 
     return bs4.BeautifulSoup(data,"html.parser")
 
+#get data from the page and return next page link url
 def getDataAndWrite(url):
     pageContent = getPage(url)
     titleSections = pageContent.find_all("div",class_="r-ent")
@@ -27,11 +29,10 @@ def getDataAndWrite(url):
     
     return nextLink
 
-
+#write data of several pages into txt file. 
 url="https://www.ptt.cc/bbs/movie/index.html"
 pageCount=0
 while pageCount<3:
     url = getDataAndWrite(url)
     pageCount+=1
 
-print("Done")

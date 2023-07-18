@@ -6,6 +6,7 @@ with request.urlopen(url) as response:
     data = json.load(response)
     attractionData=data["result"]["results"]
 
+#write data into attraction.csv file
 with open("attraction.csv",mode="w",newline="",encoding='utf-8') as file:
     writer = csv.writer(file)
     for spot in attractionData:
@@ -14,6 +15,8 @@ with open("attraction.csv",mode="w",newline="",encoding='utf-8') as file:
         rowdata = [spot["stitle"],area,spot["longitude"],spot["latitude"],imgUrl]
         writer.writerow(rowdata)
 
+#store data in temp list (nested list)
+#[[mrtName,spot1,spot2...],[mrtName,spot1...],[mrtName,spot1...]...] 
 temp=[]
 for spot in attractionData:
     mrtName=spot["MRT"]
@@ -27,6 +30,7 @@ for spot in attractionData:
         if(found==False):
             temp.append([mrtName,name])
 
+#write temp list into mrt.csv file
 with open("mrt.csv",mode="w",newline="",encoding="utf-8") as file:
     writer =csv.writer(file)
     for mrtAttraction in temp:
