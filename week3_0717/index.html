@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>0703 week01 Html CSS RWD Practice</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./week3.js"></script>
+  </head>
+  
+  <body>
+    <div id="head">
+      <h3 id="title">My Website</h3>
+      <div id="navbar">
+        <ul>
+          <li class="rowList">Item 1</li>
+          <li class="rowList">Item 2</li>
+          <li class="rowList">Item 3</li>
+          <li class="rowList">Item 4</li>
+        </ul>
+      </div>
+      <div id="hiddenNavbar">
+        <div id="hamburgerIcon" class="icon" onclick="showMenu()">
+          <i class="fa fa-bars"></i>
+        </div>
+        <div id="menu">
+          <div id="timeBlock" onclick="showHamburger()">
+            <i id="times" class="fa fa-times" aria-hidden="true"></i>
+          </div>
+          <ul>
+            <li class="columnList">Item 1</li>
+            <hr />
+            <li class="columnList">Item 2</li>
+            <hr />
+            <li class="columnList">Item 3</li>
+            <hr />
+            <li class="columnList">Item 4</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="heroImg">
+      <h1 class="welcomeText">Welcome to My Home</h1>
+    </div>
+    <div id="content">
+      <div id="promotionSection"></div>
+      <div id="articleSection"></div>
+      <button id="loadMoreBtn" onclick="loadSpot()">載入更多</button>
+    </div>
+  </body>
+</html>
