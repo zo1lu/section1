@@ -1,4 +1,4 @@
-# WEEK5 TASKES
+# WEEK5 TASKS
 本周任務是架設MySQL資料庫伺服器，進行基本SQL操作。
 
 以下為任務紀錄。
