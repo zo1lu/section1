@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css"/>
+    <title>Member Page</title>
+    <script src="/script.js" ></script>
+</head>
+<body>
+    <header>
+        <p>Hi! {{name}}, it's member page!</p>
+    </header>
+    <main>
+        <div class="container" id="greetingSection">
+            <p>Congrates! you are successfully sign in!</p>
+            <a href="/signout">Sign out</a>
+        </div>
+        <div class="container" id="messageInputSection">
+            <p>Leave message below!</p>
+            <form action="/createMessage" method="POST">
+                <div class="input-box">
+                    <label for="message">Content</label>
+                    <input type="text" name="message" id="message_content" placeholder="leave message here!" required/>
+                </div>
+                <button class="submitBtn" type="submit">Send</button>
+            </form>
+        </div>
+        <div class="container" id="messagesSection">
+            <!-- <form class="message-box" action="/" method="POST" >
+                <p>Jasper: welcome</p>
+                    <button class ="delete-btn" type="submit" onclick="return deletionCheck()">X</button>
+            </form>
+            <form class="message-box" action="/" method="POST" >
+                <p>Hannah: Love you!!</p>
+            </form>
+            <form class="message-box" action="/" method="POST" >
+                <p>Jasper: Let's go get lunch</p>
+                    <button class ="delete-btn" type="submit" onclick="return deletionCheck()">X</button>
+            </form>
+            <form class="message-box" action="/" method="POST" >
+                <p>Luke: Wait!!</p>
+            </form> -->
+            {% for msg in messages:%}
+                <form class="message-box" action="/deleteMessage?messageId={{msg[0]}}" method="POST" >
+                    <p>{{msg[2]}}: {{msg[3]}}</p>
+                    {% if(msg[1] == user_id): %}
+                        <button class ="delete-btn" type="submit" onclick="return deletionCheck()">X</button>
+                    {% endif %}
+                </form>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

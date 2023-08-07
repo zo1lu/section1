@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css"/>
+    <title>HomePage</title>
+    <script src="/script.js" ></script>
+</head>
+<body>
+    <header>
+        <p>Welcome, please enter username and password.</p>
+    </header>
+    <main>
+        <div class="container">
+            <form  action="/signup" method="POST" onsubmit="return checkSignupRequired()">
+                <div class="input-box">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="signup_name" placeholder="your name"/>
+                </div>
+                <div class="input-box">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="signup_username" placeholder="username"/>
+                </div>
+                <div class="input-box">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="signup_password" placeholder="password"/>
+                </div>
+                <button class="submitBtn" type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="container">
+            <form  action="/signin" method="POST" onsubmit="return checkSigninRequired()">
+                <div class="input-box">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="signin_username" placeholder="username"/>
+                </div>
+                <div class="input-box">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="signin_password" placeholder="password"/>
+                </div>
+                <button class="submitBtn" type="submit">Sign in</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
