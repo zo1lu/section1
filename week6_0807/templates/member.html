@@ -9,11 +9,11 @@
 </head>
 <body>
     <header>
-        <p>Hi! {{name}}, it's member page!</p>
+        <p>Hi! it's member page!</p>
     </header>
     <main>
         <div class="container" id="greetingSection">
-            <p>Congrates! you are successfully sign in!</p>
+            <p>Congrates {{name}}! you are successfully sign in!</p>
             <a href="/signout">Sign out</a>
         </div>
         <div class="container" id="messageInputSection">
@@ -27,20 +27,6 @@
             </form>
         </div>
         <div class="container" id="messagesSection">
-            <!-- <form class="message-box" action="/" method="POST" >
-                <p>Jasper: welcome</p>
-                    <button class ="delete-btn" type="submit" onclick="return deletionCheck()">X</button>
-            </form>
-            <form class="message-box" action="/" method="POST" >
-                <p>Hannah: Love you!!</p>
-            </form>
-            <form class="message-box" action="/" method="POST" >
-                <p>Jasper: Let's go get lunch</p>
-                    <button class ="delete-btn" type="submit" onclick="return deletionCheck()">X</button>
-            </form>
-            <form class="message-box" action="/" method="POST" >
-                <p>Luke: Wait!!</p>
-            </form> -->
             {% for msg in messages:%}
                 <form class="message-box" action="/deleteMessage?messageId={{msg[0]}}" method="POST" >
                     <p>{{msg[2]}}: {{msg[3]}}</p>

@@ -1,8 +1,4 @@
-from flask import Flask
-from flask import render_template
-from flask import request
-from flask import redirect
-from flask import url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, g
 import mysql.connector
 
 app=Flask(
@@ -10,7 +6,31 @@ app=Flask(
     static_folder="public",
     static_url_path="/")
 
+#set key for session data
 app.secret_key="secret"
+
+# Configuration for MySQL database
+DB_CONFIG = {
+    'user': "root",
+    'password': 'admin',
+    'host': '127.0.0.1',
+    'database': 'website',
+}
+def get_db():
+    if 'db' not in g:
+        g.db = mysql.connector.connect(**DB_CONFIG)
+    return g.db
+
+@app.before_request
+def before_request():
+    g.db = get_db()
+
+@app.after_request
+def after_request(response):
+    db = g.pop('db', None)
+    if db is not None:
+        db.close()
+    return response
 
 @app.route("/")
 def index():
@@ -22,23 +42,17 @@ def sign_up():
     username = request.form['username']
     password = request.form['password']
     try:
-        con = mysql.connector.connect(
-        user="root",
-        password="admin",
-        host="127.0.0.1",
-        database="website"
-        )
-        cursor = con.cursor()
+        cursor = g.db.cursor()
         #check if username has been used
         cursor.execute("SELECT * FROM member WHERE username=%s",(username,))
-        data=cursor.fetchall();
+        data=cursor.fetchall()
         if data:
             return redirect(url_for("error",message=["Username has been used!"]))
         else:
             # if not been used, add into database then redirect to homepage
+            cursor = g.db.cursor()
             cursor.execute("INSERT INTO member(name, username, password) VALUES(%s, %s, %s)",(name, username,password))
-            con.commit()
-            con.close()
+            g.db.commit()
             return redirect("/")
     except Exception as error:
         print(error)
@@ -50,17 +64,10 @@ def sign_in():
     username = request.form['username']
     password = request.form['password']
     try:
-        con = mysql.connector.connect(
-        user="root",
-        password="admin",
-        host="127.0.0.1",
-        database="website"
-        )
-        cursor = con.cursor()
+        cursor = g.db.cursor()
         query = "SELECT * FROM member WHERE username=%s and password=%s"
         cursor.execute(query,(username,password))
         data= cursor.fetchone()
-        print(data)
         if data:
             valid_id= data[0]
             valid_username = data[2]
@@ -70,16 +77,13 @@ def sign_in():
             session['user_username']=valid_username
             session['user_name']=valid_name
             cursor.close()
-            con.close()
             # show user's name in member page
             return redirect("/member")
         else:
-            con.close()
             #if found nothing, redirect to error page
             return redirect(url_for("error",message=["Username or password incorrect!"]))
             
-    except Exception as error:
-        print(error)
+    except:
         return redirect(url_for("error",message=["Somthing wrong, please try again!"]))
 
 @app.route("/error")
@@ -104,22 +108,15 @@ def member():
             name = session['user_name']
             user_id= session['user_id']
             #get messages from database
-            con = mysql.connector.connect(
-            user="root",
-            password="admin",
-            host="127.0.0.1",
-            database="website"
-            )
-            cursor = con.cursor()
+            cursor = g.db.cursor()
             query = "SELECT message.id, message.member_id, member.name, message.content FROM message LEFT JOIN member ON member.id = message.member_id"
             cursor.execute(query)
             data = cursor.fetchall()
             return render_template("member.html", name = name, messages=data, user_id=user_id)    
         else:
             redirect("/")
-    except Exception as error:
-        print(error)
-        return redirect("/")
+    except:
+        return redirect(url_for("error",message=["Somthing wrong, please try again!"]))
     
 @app.route("/createMessage", methods=["POST"])
 def create_message():
@@ -127,34 +124,21 @@ def create_message():
     message = request.form["message"]
     user_id = session['user_id']
     #save data into database
-    con = mysql.connector.connect(
-    user="root",
-    password="admin",
-    host="127.0.0.1",
-    database="website"
-    )
-    cursor = con.cursor()
+    cursor = g.db.cursor()
     query = "INSERT INTO message(member_id,content) VALUES(%s, %s)"
     cursor.execute(query,(user_id,message))
-    con.commit()
+    g.db.commit()
     return redirect("/member")
 
 
 @app.route("/deleteMessage", methods=["POST"])
 def delete_message():
     messageId = request.args.get("messageId")
-    con = mysql.connector.connect(
-    user="root",
-    password="admin",
-    host="127.0.0.1",
-    database="website"
-    )
-    cursor = con.cursor()
+    cursor = g.db.cursor()
     query = "DELETE FROM message WHERE id=%s"
     cursor.execute(query,(messageId,))
-    con.commit()
+    g.db.commit()
     cursor.close()
-    con.close()
     return redirect("/member")
 
 app.run(port=3000)
