@@ -28,9 +28,9 @@
         </div>
         <div class="container" id="messagesSection">
             {% for msg in messages:%}
-                <form class="message-box" action="/deleteMessage?messageId={{msg[0]}}" method="POST" >
-                    <p>{{msg[2]}}: {{msg[3]}}</p>
-                    {% if(msg[1] == user_id): %}
+                <form class="message-box" action="/deleteMessage?messageId={{msg["id"]}}" method="POST" >
+                    <p>{{msg["name"]}}: {{msg["content"]}}</p>
+                    {% if(msg["member_id"] == user_id): %}
                         <button class ="delete-btn" type="submit" onclick="return deletionCheck()">X</button>
                     {% endif %}
                 </form>

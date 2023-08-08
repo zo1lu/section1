@@ -108,7 +108,7 @@ def member():
             name = session['user_name']
             user_id= session['user_id']
             #get messages from database
-            cursor = g.db.cursor()
+            cursor = g.db.cursor(dictionary=True)
             query = "SELECT message.id, message.member_id, member.name, message.content FROM message LEFT JOIN member ON member.id = message.member_id"
             cursor.execute(query)
             data = cursor.fetchall()
