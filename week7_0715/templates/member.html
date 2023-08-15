@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css"/>
+    <title>Member Page</title>
+    <script src="/script.js" ></script>
+</head>
+<body>
+    <header>
+        <p>Hi! it's member page!</p>
+    </header>
+    <main>
+        <div class="container" id="greetingSection">
+            <h2>Congrates {{name}}! you are successfully sign in!</h2>
+            <a href="/signout">Sign out</a>
+        </div>
+        <div class="container" id="memberSearchSection">
+            <h3>Search member here!</h3>
+            <div class="input-box">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="user_name" placeholder="enter username" required/>
+            </div>
+            <button class="submitBtn" type="submit" onclick="searchMember()">Search</button>
+            <div>
+                <span id="search_member_result"></span>
+            </div>
+        </div>
+        <div class="container" id="memberUpdateSection">
+            <h3>Update my name!</h3>
+            <div class="input-box">
+                <label for="username">Newname</label>
+                <input type="text" name="newname" id="new_name" placeholder="enter new name" required/>
+            </div>
+            <button class="submitBtn" type="submit" onclick="updateName()">Update</button>
+            <div>
+                <span id="update_result"></span>
+            </div>
+        </div>
+        <div class="container" id="messageInputSection">
+            <h3>Leave message below!</h3>
+            <form action="/createMessage" method="POST">
+                <div class="input-box">
+                    <label for="message">Content</label>
+                    <input type="text" name="message" id="message_content" placeholder="leave message here!" required/>
+                </div>
+                <button class="submitBtn" type="submit">Send</button>
+            </form>
+        </div>
+        <div class="container" id="messagesSection">
+            {% for msg in messages:%}
+                <form class="message-box" action="/deleteMessage?messageId={{msg["id"]}}" method="POST" >
+                    <p>{{msg["name"]}}: {{msg["content"]}}</p>
+                    {% if(msg["member_id"] == user_id): %}
+                        <button class ="delete-btn" type="submit" onclick="return deletionCheck()">X</button>
+                    {% endif %}
+                </form>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
