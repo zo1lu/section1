@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>0703 week01 HTML CSS RWD Practice-CSS Optimized</title>
+    <link rel="stylesheet" href="./style-BEM.css" />
+  </head>
+  <script>
+    let showMenu = function () {
+      let hamburger_icon = document.getElementById("hamburger_icon");
+      let menu = document.getElementById("sidebar_menu");
+      menu.style.display = "flex";
+      hamburger_icon.style.display = "none";
+    };
+    let showHamburger = function () {
+      let hamburger_icon = document.getElementById("hamburger_icon");
+      let menu = document.getElementById("sidebar_menu");
+      menu.style.display = "none";
+      hamburger_icon.style.display = "flex"; 
+    };
+  </script>
+  <body class="body">
+    <div class="header">
+      <h3 class="header__title">My Website</h3>
+      <div class="nav">
+        <ul class="nav__wrapper">
+          <li class="nav__item">Item 1</li>
+          <li class="nav__item">Item 2</li>
+          <li class="nav__item">Item 3</li>
+          <li class="nav__item">Item 4</li>
+        </ul>
+      </div>
+      <div class="sidebar">
+        <div id="hamburger_icon" class="sidebar__burgerbtn" onclick="showMenu()">
+          <i class="fa fa-bars"></i>
+        </div>
+        <div id="sidebar_menu" class="sidebar__menu">
+          <div  class="sidebar__closebtn" onclick="showHamburger()">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </div>
+          <ul class="sidebar__wrapper">
+            <li class="sidebar__item">Item 1</li>
+            <hr class="sidebar__divider"/>
+            <li class="sidebar__item">Item 2</li>
+            <hr class="sidebar__divider"/>
+            <li class="sidebar__item">Item 3</li>
+            <hr class="sidebar__divider"/>
+            <li class="sidebar__item">Item 4</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="hero">
+      <h1 class="hero__welcome">Welcome to My Home</h1>
+    </div>
+    <div class="content">
+      <div class="promotion">
+        <div class="promotion__item">
+          <img
+            class="promotion__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="Promotion1"
+          />
+          <p class="promotion__title">Promotion 1</p>
+        </div>
+        <div class="promotion__item">
+          <img
+            class="promotion__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="Promotion2"
+          />
+          <p class="promotion__title">Promotion 2</p>
+        </div>
+        <div class="promotion__item">
+          <img
+            class="promotion__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="Promotion3"
+          />
+          <p class="promotion__title">Promotion 3</p>
+        </div>
+      </div>
+      <div class="article">
+        <div class="article__page">
+          <img
+            class="article__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="article1"
+          />
+          <p class="article__title">Title 1</p>
+          <i class="article__star fa fa-star star"></i>
+        </div>
+        <div class="article__page">
+          <img
+            class="article__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="article2"
+          />
+          <p class="article__title">Title 2</p>
+          <i class="article__star fa fa-star star"></i>
+        </div>
+        <div class="article__page">
+          <img
+            class="article__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="article3"
+          />
+          <p class="article__title">Title 3</p>
+          <i class="article__star fa fa-star star"></i>
+        </div>
+        <div class="article__page">
+          <img
+            class="article__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="article4"
+          />
+          <p class="article__title">Title 4</p>
+          <i class="article__star fa fa-star star"></i>
+        </div>
+        <div class="article__page">
+          <img
+            class="article__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="article5"
+          />
+          <p class="article__title">Title 5</p>
+          <i class="article__star fa fa-star star"></i>
+        </div>
+        <div class="article__page">
+          <img
+            class="article__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="article6"
+          />
+          <p class="article__title">Title 6</p>
+          <i class="article__star fa fa-star star"></i>
+        </div>
+        <div class="article__page">
+          <img
+            class="article__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="article7"
+          />
+          <p class="article__title">Title 7</p>
+          <i class="article__star fa fa-star star"></i>
+        </div>
+        <div class="article__page">
+          <img
+            class="article__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="article8"
+          />
+          <p class="article__title">Title 8</p>
+          <i class="article__star fa fa-star star"></i>
+        </div>
+        <div class="article__page">
+          <img
+            class="article__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="article9"
+          />
+          <p class="article__title">Title 9</p>
+          <i class="article__star fa fa-star star"></i>
+        </div>
+        <div class="article__page">
+          <img
+            class="article__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="article10"
+          />
+          <p class="article__title">Title 10</p>
+          <i class="article__star fa fa-star star"></i>
+        </div>
+        <div class="article__page">
+          <img
+            class="article__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="article11"
+          />
+          <p class="article__title">Title 11</p>
+          <i class="article__star fa fa-star star"></i>
+        </div>
+        <div class="article__page">
+          <img
+            class="article__img"
+            src="https://images.unsplash.com/photo-1618083707368-b3823daa2726?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt="article12"
+          />
+          <p class="article__title">Title 12</p>
+          <i class="article__star fa fa-star star"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
